@@ -75,13 +75,13 @@
           Hello World
         </h1>
         <p class="subtitle">
-          My first website with <strong>Bulma</strong>!
+          My first website with <strong>Bulma</strong> {{ `${now}` }}  !
         </p>
 
-        <article class="message is-primary">
-            <div class="message-header">
+        <article class="message is-primary" :class="{ 'is-hidden': !visible }" >
+            <div class="message-header" :style="` font-size: ${counter}px `" @click="grow()"  >
               <p>Primary</p>
-              <button class="delete" aria-label="delete"></button>
+              <button class="delete" aria-label="delete" @click="close()"></button>
             </div>
             <div class="message-body">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. <strong>
@@ -111,8 +111,34 @@
         </article>
 
       </div>
-      <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+      <script src="https://unpkg.com/vue@next"></script>
       <script>
+
+        const VM = {
+            data() {
+                return {
+                    counter: 3,
+                    now: new Date().toLocaleString(),
+                    visible: true
+                }
+            },
+            mounted() {
+                setInterval(() => this.now = new Date().toLocaleString() , 1000)
+            },
+            methods: {
+                grow(){
+                    this.counter += 10;
+                },
+                close(){
+                    this.visible = false;
+                }
+            }
+        }
+
+        Vue.createApp(VM).mount('.container')
+
+
+
           let size = 72;
         $(".message-header p").click(function(){
             size += 10;
