@@ -19,6 +19,10 @@
         Home
       </a>
 
+      <a class="navbar-item" href="/feed">
+        Feed
+      </a>
+
       <a class="navbar-item">
         Documentation
       </a>

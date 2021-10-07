@@ -23,8 +23,8 @@ export default {
     },
     methods: {
         login(){
-
-            this.Session.Login();
+            this.$router.push('/login');
+            //this.Session.Login();
 
         }
     },
