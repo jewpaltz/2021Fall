@@ -15,27 +15,27 @@
 
   <div class="navbar-menu " :class="{'is-active': isActive }">
     <div class="navbar-start">
-      <a class="navbar-item" href="/">
+      <router-link class="navbar-item is-tab" to="/" active-class="is-active" exact>
         Home
-      </a>
+      </router-link>
 
-      <a class="navbar-item" href="/feed">
+      <router-link class="navbar-item is-tab" to="/feed" active-class="is-active">
         Feed
-      </a>
+      </router-link>
 
-      <a class="navbar-item">
+      <router-link class="navbar-item is-tab" to="/about" active-class="is-active">
         Documentation
-      </a>
+      </router-link>
 
-      <div class="navbar-item has-dropdown is-hoverable">
-        <a class="navbar-link">
+      <div class="navbar-item has-dropdown is-hoverable" >
+        <a class="navbar-link" >
           More
         </a>
 
         <div class="navbar-dropdown">
-          <a class="navbar-item" href="about">
+          <router-link class="navbar-item is-tab" to="about" active-class="is-active">
             About
-          </a>
+          </router-link>
           <a class="navbar-item">
             Jobs
           </a>

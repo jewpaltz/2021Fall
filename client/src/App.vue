@@ -1,8 +1,13 @@
 <template>
     <div class="container">
-        <Nav />
+        <div class="columns">
+            <div class="column">
+                <Nav />
 
-        <router-view/>        
+                <router-view/>                 
+            </div>
+        </div>
+       
     </div>
 
 </template>
