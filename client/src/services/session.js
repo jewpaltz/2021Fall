@@ -1,5 +1,6 @@
 import router from "../router";
 import { Login } from "./users";
+import { NotificationProgrammatic } from "@oruga-ui/oruga-next/dist/esm/notification";
 
 const session = {
     user: null,
@@ -16,6 +17,14 @@ const session = {
                 
         } catch (error) {
             this.messages.push({ text: error.msg, type: 'warning' })
+            NotificationProgrammatic.open({
+                duration: 5000,
+                message: error.msg,
+                variant: 'danger',
+                type: 'danger',
+                closable: true,
+
+            })
         }
 
 
