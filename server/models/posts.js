@@ -63,12 +63,18 @@ module.exports.GetFeed = function GetFeed(handle) { return listWithOwner()
 
 
 module.exports.Get = function Get(post_id) { return list[post_id]; }
+
 module.exports.Add = function Add(post) {
     if(!post.user_handle){
         throw {code: 422, msg: "Post must have an Owner"}
     }
-     list.push(post);
-     return { ...post };
+    post.time = Date();
+    
+    list.push(post);
+    
+    post.id = list.length;
+
+    return { ...post };
 }
 module.exports.Update = function Update(post_id, post) {
     const oldObj = list[post_id];
