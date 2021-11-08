@@ -51,3 +51,6 @@ Content-Type: application/json
         "handle": "@potus",
         "password": "password"
     }
+
+###
+http://localhost:3100/users/async
