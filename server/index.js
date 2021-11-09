@@ -22,6 +22,10 @@ app
 
 app
     .use((err, req, res, next)=>{
+        // Besides for sending the error to the client. It is helpful to write it to the terminal/console.
+        // More information can be serialized to the console than can be serialized to JSON for transfer over the wire.
+        // Eventually you may want to add logic to prevent sensitive information from being sent to the client and to reformat the error message to make it more user friendly
+        console.error(err);
         res.status(err.code || 500).send(err);
     })
 

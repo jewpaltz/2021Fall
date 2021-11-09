@@ -1,7 +1,7 @@
 /* B"H
 */
 const bcrypt = require('bcrypt');
-const { result } = require('lodash');
+const { ObjectId } = require('bson');
 const { client } = require('./mongo');
 
 const collection = client.db(process.env.MONGO_DB).collection('users');
@@ -51,7 +51,7 @@ module.exports.GetAll = function GetAll() { return collection.find().toArray() ;
 
 module.exports.Get = user_id => collection.findOne({_id: user_id}) 
 
-module.exports.GetByHandle = function GetByHandle(handle) { return ({ ...list.find( x => x.handle == handle ), password: undefined }); } 
+module.exports.GetByHandle = (handle) => ({ ...collection.findOne({ handle }), password: undefined });
 
 module.exports.Add = async function Add(user) {
     if(!user.firstName){
@@ -73,22 +73,16 @@ module.exports.Add = async function Add(user) {
 }
 
 
-module.exports.Update = function Update(user_id, user) {
-    const oldObj = list[user_id];
-    if(user.firstName){
-        oldObj.firstName = user.firstName;
-    }
-    if(user.lastName){
-        oldObj.lastName = user.lastName;
-    }
-    if(user.handle){
-        oldObj.handle = user.handle;
-    }
-    if(user.pic){
-        oldObj.pic = user.pic;
-    }
-    //list[user_id] = newObj ;
-    return { ...oldObj, password: undefined };
+module.exports.Update = async function Update(user_id, user) {
+
+    const results = await collection.findOneAndUpdate(
+        {_id: ObjectId(user_id) }, 
+        { $set: user },
+        { returnDocument: 'after'}
+    );
+    console.log({ user_id, results });
+        
+    return { ...results.value, password: undefined };
 }
 
 module.exports.Delete = function Delete(user_id) {
