@@ -51,7 +51,7 @@ module.exports.GetAll = function GetAll() { return collection.find().toArray() ;
 
 module.exports.Get = user_id => collection.findOne({_id: user_id}) 
 
-module.exports.GetByHandle = (handle) => ({ ...collection.findOne({ handle }), password: undefined });
+module.exports.GetByHandle = (handle) => collection.findOne({ handle }).then(x=> ({ ...x, password: undefined }));
 
 module.exports.Add = async function Add(user) {
     if(!user.firstName){
@@ -76,7 +76,7 @@ module.exports.Add = async function Add(user) {
 module.exports.Update = async function Update(user_id, user) {
 
     const results = await collection.findOneAndUpdate(
-        {_id: ObjectId(user_id) }, 
+        {_id: new ObjectId(user_id) }, 
         { $set: user },
         { returnDocument: 'after'}
     );
