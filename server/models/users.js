@@ -5,6 +5,7 @@ const { ObjectId } = require('bson');
 const { client } = require('./mongo');
 
 const collection = client.db(process.env.MONGO_DB).collection('users');
+module.exports.collection = collection;
 
 const list = [
     { 

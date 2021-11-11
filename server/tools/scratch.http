@@ -4,26 +4,6 @@ http://localhost:3100/users
 http://localhost:3100/users/1
 
 ###
-http://localhost:3100/posts
-//  W/"4f1d-/Uyaq2+mFc+CHHX7oJ78AffwOis"
-
-###
-http://localhost:3100/posts/1
-NP-Demo: Best Class Ever
-
-###
-POST http://localhost:3100/posts
-Content-Type: application/json
-
-{
-    "src": "https://apod.nasa.gov/apod/image/2111/MilkyWayWaterfall_XieJie_960.jpg",
-    "alt": "A Waterfall and the Milky Way",
-    "caption": "A Waterfall and the Milky Way",
-    "user_handle": "@JewPaltz",
-    "isPublic": true
-}
-
-###
 https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY
 
 ###
@@ -65,3 +45,46 @@ DELETE  http://localhost:3100/users/618a640f7e7f808f5d6290f4
 
 ###
 POST http://localhost:3100/users/seed
+
+
+####################################################
+http://localhost:3100/posts
+
+
+###
+http://localhost:3100/posts/618cac0f347b76cc068f980e
+
+###
+http://localhost:3100/posts/wall/@JewPaltz
+
+###
+http://localhost:3100/posts/feed/@JewPaltz
+
+###
+http://localhost:3100/posts/search?q=never
+
+###
+POST http://localhost:3100/posts
+Content-Type: application/json
+
+{
+    "src": "https://apod.nasa.gov/apod/image/2111/MilkyWayWaterfall_XieJie_960.jpg",
+    "alt": "A Waterfall and the Milky Way",
+    "caption": "A Waterfall and the Milky Way",
+    "user_handle": "@JewPaltz",
+    "isPublic": true
+}
+###
+PATCH http://localhost:3100/posts/618cac0f347b76cc068f980e
+Content-Type: application/json
+
+{
+    "caption": "A Waterfall and the Milky Way G"
+}
+
+###
+DELETE  http://localhost:3100/posts/618cac0f347b76cc068f980e
+
+###
+POST http://localhost:3100/posts/seed
+
