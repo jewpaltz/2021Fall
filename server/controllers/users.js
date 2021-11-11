@@ -27,6 +27,13 @@ app
                 .catch(next) 
 
     })
+    .delete("/:user_id", (req, res, next) =>{
+
+        model   .Delete(req.params.user_id)
+                .then( user=> res.send({ deleted: user }) )
+                .catch(next) 
+
+    })
     .post("/login", (req, res, next) =>{
 
         model.Login(req.body.handle, req.body.password)

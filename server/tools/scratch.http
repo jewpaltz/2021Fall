@@ -61,4 +61,7 @@ Content-Type: application/json
 }
 
 ###
+DELETE  http://localhost:3100/users/618a640f7e7f808f5d6290f4
+
+###
 POST http://localhost:3100/users/seed

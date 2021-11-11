@@ -49,7 +49,7 @@ const list = [
 
 module.exports.GetAll = function GetAll() { return collection.find().toArray() ; }
 
-module.exports.Get = user_id => collection.findOne({_id: user_id}) 
+module.exports.Get = user_id => collection.findOne({_id: new ObjectId(user_id)}) 
 
 module.exports.GetByHandle = (handle) => collection.findOne({ handle }).then(x=> ({ ...x, password: undefined }));
 
@@ -85,10 +85,10 @@ module.exports.Update = async function Update(user_id, user) {
     return { ...results.value, password: undefined };
 }
 
-module.exports.Delete = function Delete(user_id) {
-    const user = list[user_id];
-    list.splice(user_id, 1);
-    return user;
+module.exports.Delete = async function Delete(user_id) {
+    const results = await collection.findOneAndDelete({_id: new ObjectId(user_id) })
+
+    return results.value;
 }
 
 module.exports.Login = async function Login(handle, password){
