@@ -16,17 +16,22 @@ const session = {
             router.push(this.toRoute);
                 
         } catch (error) {
-            this.messages.push({ text: error.msg, type: 'warning' })
-            NotificationProgrammatic.open({
-                duration: 5000,
-                message: error.msg,
-                variant: 'danger',
-                type: 'danger',
-                closable: true,
-
-            })
+            this.Error(error);
         }
+    },
+    Error(error){
+        console.error(error);
+        const msg = error.msg ?? error;
 
+        this.messages.push({ text: msg, type: 'warning' })
+        NotificationProgrammatic.open({
+            duration: 5000,
+            message: msg,
+            variant: 'danger',
+            type: 'danger',
+            closable: true,
+
+        })
 
     }
 };
