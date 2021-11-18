@@ -55,7 +55,7 @@ export default {
     methods: {
         async remove(post, i){
             console.log({post})
-            const response = await Delete(post.id)
+            const response = await Delete(post._id)
             if(response.deleted){
                 this.posts.splice(i, 1)
             }

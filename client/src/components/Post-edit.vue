@@ -54,6 +54,11 @@ export default {
         return {
             post: this.newPost
         }
+    },
+    watch: {
+        newPost(){
+            this.post = this.newPost;
+        }
     }
 }
 </script>
