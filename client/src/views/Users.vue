@@ -59,8 +59,11 @@
 export default {
     data() {
         return {
-            list: GetAll()
+            list: []
         }
+    },
+    async mounted(){
+        this.list = await GetAll();
     }
 }
 </script>

@@ -44,7 +44,7 @@ const list = [
 
 ];
 
-export function GetAll() { return api('usders'); }
+export function GetAll() { return api('users'); }
 export function Get(user_id) { return list[user_id]; }
 export function GetByHandle(handle) { return ({ ...list.find( x => x.handle == handle ), password: undefined }); } 
 
