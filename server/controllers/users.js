@@ -15,7 +15,14 @@ app
         .catch(next) 
     })
     .get("/:user_id", (req, res, next) =>{
-         model.Get(req.params.user_id)
+        model.Get(req.params.user_id)
+           .then(user=>{ 
+               res.send(user);
+           })
+           .catch(next) 
+   })
+   .get("/byhandle/:handle", (req, res, next) =>{
+        model.GetByHandle(req.params.handle)
             .then(user=>{ 
                 res.send(user);
             })
