@@ -46,6 +46,20 @@ DELETE  http://localhost:3100/users/618a640f7e7f808f5d6290f4
 ###
 POST http://localhost:3100/users/seed
 
+###
+POST http://localhost:3100/users/@vp/follow/@JewPaltz
+
+###
+DELETE http://localhost:3100/users/@vp/follow/@JewPaltz
+
+###
+PATCH http://localhost:3100/users/@vp/approve/@JewPaltz
+Content-Type: application/json
+
+{
+    "shouldApprove": true
+}
+
 
 ####################################################
 http://localhost:3100/posts
