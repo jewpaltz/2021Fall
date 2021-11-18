@@ -15,16 +15,15 @@
       </div>
       <div class="media-content">
         <p class="title is-4"> {{post.user.firstName}} {{post.user.lastName}} </p>
-        <p class="subtitle is-6">{{post.user.handle}}</p>
+        <p class="subtitle is-6">
+            {{post.user.handle}}
+                  <time :datetime="post.time">{{prettyDate}}</time>
+        </p>
       </div>
     </div>
 
     <div class="content">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-      Phasellus nec iaculis mauris. <a>@bulmaio</a>.
-      <a href="#">#css</a> <a href="#">#responsive</a>
-      <br>
-      <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+      {{post.caption}}
     </div>
   </div>
     <footer class="card-footer">
@@ -39,6 +38,16 @@
 export default {
     props: {
         post: Object
+    },
+    computed: {
+        prettyDate(){
+            if(this.post.time && this.post.time.toDateString){
+                return this.post.time.toDateString()
+            }else{
+                return 'Never'
+            }
+            
+        }
     }
 }
 </script>
