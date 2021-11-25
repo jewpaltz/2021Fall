@@ -47,7 +47,7 @@ export default {
         },
         loginGoogle(){
             auth.signIn().then(x=> {
-
+                console.log({ x })
             })
         }
     }
