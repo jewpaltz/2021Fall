@@ -13,9 +13,7 @@
     "@oruga-ui/oruga-next": "^0.4.4",
     "core-js": "^3.6.5",
     "vue": "^3.0.0",
-    "vue-router": "^4.0.0-0"
-  },
-  "devDependencies": {
+    "vue-router": "^4.0.0-0",
     "@vue/cli-plugin-babel": "~4.5.0",
     "@vue/cli-plugin-eslint": "~4.5.0",
     "@vue/cli-plugin-router": "~4.5.0",
@@ -26,6 +24,9 @@
     "eslint-plugin-vue": "^7.0.0",
     "sass": "^1.26.5",
     "sass-loader": "^8.0.2"
+  },
+  "devDependencies": {
+
   },
   "eslintConfig": {
     "root": true,
