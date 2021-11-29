@@ -1,11 +1,13 @@
 import React from "react";
-import logo from './logo.svg';
+import logo from './assets/logo.svg';
 import './App.css';
+import Nav from "./components/Nav";
 
 function App() {
   return (
     <div className="App">
 
+        <Nav />
         <section className="hero is-medium is-link">
             <div className="hero-body">
                 <p className="title">
