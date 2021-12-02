@@ -26,15 +26,15 @@ export default function Nav() {
 
   <div className="navbar-menu " className="{'is-active': isActive }">
     <div className="navbar-start">
-      <NavLink className="navbar-item is-tab" to="/" active-className="is-active" exact>
+      <NavLink className={({isActive}) => "navbar-item is-tab" + ( isActive && " is-active")} to="/" exact>
         Home
       </NavLink>
 
-      <NavLink className="navbar-item is-tab" to="/feed" active-className="is-active">
+      <NavLink  className={({isActive}) => "navbar-item is-tab" + ( isActive && " is-active")}  to="/feed" >
         Feed
       </NavLink>
 
-      <NavLink className="navbar-item is-tab" to="/about" active-className="is-active">
+      <NavLink className={({isActive}) => "navbar-item is-tab" + ( isActive && " is-active")}  to="/about" >
         Documentation
       </NavLink>
 
@@ -44,7 +44,7 @@ export default function Nav() {
         </a>
 
         <div className="navbar-dropdown">
-          <NavLink className="navbar-item is-tab" to="about" active-className="is-active">
+          <NavLink  className={({isActive}) => "navbar-item is-tab" + ( isActive && " is-active")}  to="about" >
             About
           </NavLink>
           <a className="navbar-item">
