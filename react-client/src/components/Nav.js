@@ -1,5 +1,8 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+
+import logo from '../assets/logo.svg';
+
 //import LoginBadge from './LoginBadge';
 
 export default function Nav() {
@@ -10,7 +13,7 @@ export default function Nav() {
   <nav className="navbar is-primary" role="navigation" aria-label="main navigation">
   <div className="navbar-brand">
     <a className="navbar-item" href="https://bulma.io">
-      <img src="../assets/logo.png" height="28" />
+      <img src={logo} className="App-logo" height="28" />
       <h3 className="title">Be Happy</h3>
     </a>
 
