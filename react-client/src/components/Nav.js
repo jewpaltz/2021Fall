@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 //import LoginBadge from './LoginBadge';
 
 export default function Nav() {
@@ -22,17 +23,17 @@ export default function Nav() {
 
   <div className="navbar-menu " className="{'is-active': isActive }">
     <div className="navbar-start">
-      <router-link className="navbar-item is-tab" to="/" active-className="is-active" exact>
+      <NavLink className="navbar-item is-tab" to="/" active-className="is-active" exact>
         Home
-      </router-link>
+      </NavLink>
 
-      <router-link className="navbar-item is-tab" to="/feed" active-className="is-active">
+      <NavLink className="navbar-item is-tab" to="/feed" active-className="is-active">
         Feed
-      </router-link>
+      </NavLink>
 
-      <router-link className="navbar-item is-tab" to="/about" active-className="is-active">
+      <NavLink className="navbar-item is-tab" to="/about" active-className="is-active">
         Documentation
-      </router-link>
+      </NavLink>
 
       <div className="navbar-item has-dropdown is-hoverable" >
         <a className="navbar-link" >
@@ -40,9 +41,9 @@ export default function Nav() {
         </a>
 
         <div className="navbar-dropdown">
-          <router-link className="navbar-item is-tab" to="about" active-className="is-active">
+          <NavLink className="navbar-item is-tab" to="about" active-className="is-active">
             About
-          </router-link>
+          </NavLink>
           <a className="navbar-item">
             Jobs
           </a>
