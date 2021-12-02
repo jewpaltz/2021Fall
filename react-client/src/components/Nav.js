@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 
 import logo from '../assets/logo.svg';
@@ -7,7 +7,7 @@ import logo from '../assets/logo.svg';
 
 export default function Nav() {
 
-    const data = { isActive: false }
+    const [isActive, setIsActive] = useState(false);
 
     return (
   <nav className="navbar is-primary" role="navigation" aria-label="main navigation">
@@ -17,14 +17,14 @@ export default function Nav() {
       <h3 className="title">Be Happy</h3>
     </a>
 
-    <a role="button" className="navbar-burger" aria-label="menu" aria-expanded="false" className="{'is-active': isActive }" click="isActive = !isActive" >
+    <a role="button" className={"navbar-burger" + ( isActive ? ' is-active' : '')} aria-label="menu" aria-expanded="false" onClick={()=> setIsActive(!isActive) }  >
       <span aria-hidden="true"></span>
       <span aria-hidden="true"></span>
       <span aria-hidden="true"></span>
     </a>
   </div>
 
-  <div className="navbar-menu " className="{'is-active': isActive }">
+  <div className={"navbar-menu" + ( isActive ? ' is-active' : '')}>
     <div className="navbar-start">
       <NavLink className={({isActive}) => "navbar-item is-tab" + ( isActive && " is-active")} to="/" exact>
         Home
