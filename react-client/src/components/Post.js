@@ -1,4 +1,4 @@
-
+import React from "react";
 
 const deleteStyle = {
     position: 'absolute',
@@ -9,7 +9,7 @@ const deleteStyle = {
 
 
 
-export default function Post( {post, deletePost} ) {
+export default function Post( {post, deletePost=null} ) {
 
 function prettyDate(){
     if(post.time && post.time.toDateString){
@@ -20,37 +20,37 @@ function prettyDate(){
     
 }    
     return (
-  <div class="card">
-  <div class="card-image">
-    <figure class="image is-4by3">
+  <div className="card">
+  <div className="card-image">
+    <figure className="image is-4by3">
       <img src={post.src} alt={post.alt} />
-        <button class="delete" style={deleteStyle} onClick={deletePost}></button>
+        <button className="delete" style={deleteStyle} onClick={deletePost}></button>
     </figure>
   </div>
-  <div class="card-content">
-    <div class="media">
-      <div class="media-left">
-        <figure class="image is-48x48">
+  <div className="card-content">
+    <div className="media">
+      <div className="media-left">
+        <figure className="image is-48x48">
           <img src={post.user.pic} alt="Placeholder image" />
         </figure>
       </div>
-      <div class="media-content">
-        <p class="title is-4"> {post.user.firstName} {post.user.lastName} </p>
-        <p class="subtitle is-6">
+      <div className="media-content">
+        <p className="title is-4"> {post.user.firstName} {post.user.lastName} </p>
+        <p className="subtitle is-6">
             {post.user.handle}
-                  <time datetime={post.time}> {prettyDate} </time>
+                  <time dateTime={post.time}> {prettyDate} </time>
         </p>
       </div>
     </div>
 
-    <div class="content">
+    <div className="content">
       {post.caption}
     </div>
   </div>
-    <footer class="card-footer">
-        <a href="#" class="card-footer-item">Save</a>
-        <a href="#" class="card-footer-item">Edit</a>
-        <a href="#" class="card-footer-item">Delete</a>
+    <footer className="card-footer">
+        <a href="#" className="card-footer-item">Save</a>
+        <a href="#" className="card-footer-item">Edit</a>
+        <a href="#" className="card-footer-item">Delete</a>
   </footer>
 </div>
 )}
