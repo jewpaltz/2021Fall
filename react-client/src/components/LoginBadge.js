@@ -1,12 +1,12 @@
-//import Session from "../services/session";
-    const Session = {};
+import Session from "../services/session";
+    //const Session = {};
     function    login(){
-            this.$router.push('/login');
-            //this.Session.Login();
-        }
+        Session.Error('Not Implemented Yet')
+        //this.Session.Login();
+    }
     function    name(){
-            return this.Session.user.firstName + ' ' + this.Session.user.lastName;
-        }
+        return Session.user.firstName + ' ' + Session.user.lastName;
+    }
 
     export default ()=> !Session.user ?
 
@@ -14,10 +14,10 @@
           <a class="button is-primary">
             <strong>Sign up</strong>
           </a>
-          <a class="button is-light" click="login">
+          <a class="button is-light" onClick={ login }>
             Log in
           </a>
     </div> :
     <div >
-        Hello {name}
+        Hello {name()}
     </div>
