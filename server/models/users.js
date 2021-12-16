@@ -112,6 +112,13 @@ module.exports.Login = async function Login(handle, password){
     
 }
 
+module.exports.Search = q => collection.find({
+  "$or": [
+    { firstName: new RegExp(q,"i") },
+    { lastName: new RegExp(q,"i") },
+  ]
+}).toArray();
+
 module.exports.Seed = async ()=>{
     for (const x of list) {
         await module.exports.Add(x)

@@ -4,6 +4,9 @@ http://localhost:3100/users
 http://localhost:3100/users/1
 
 ###
+http://localhost:3100/users/search?q=mos
+
+###
 https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY
 
 ###
